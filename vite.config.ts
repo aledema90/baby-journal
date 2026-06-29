@@ -23,20 +23,16 @@ export default defineConfig(() => ({
     // the browser cache across deploys (we redeploy app code far more often).
     rollupOptions: {
       output: {
-        manualChunks: {
-          "react-vendor": ["react", "react-dom", "react-router-dom"],
-          "radix-vendor": [
-            "@radix-ui/react-dialog",
-            "@radix-ui/react-dropdown-menu",
-            "@radix-ui/react-popover",
-            "@radix-ui/react-select",
-            "@radix-ui/react-tabs",
-            "@radix-ui/react-toast",
-            "@radix-ui/react-tooltip",
-          ],
-          "supabase-vendor": ["@supabase/supabase-js"],
-          "charts-vendor": ["recharts"],
-          "date-vendor": ["date-fns"],
+        // Function form (object form is not supported by Vite 8's rolldown
+        // bundler). Maps each vendor module to a stable, rarely-changing chunk.
+        manualChunks(id) {
+          if (!id.includes("node_modules")) return;
+          if (/[\\/]node_modules[\\/](react|react-dom|react-router-dom|react-router|@remix-run[\\/]router)[\\/]/.test(id))
+            return "react-vendor";
+          if (/[\\/]node_modules[\\/]@radix-ui[\\/]/.test(id)) return "radix-vendor";
+          if (/[\\/]node_modules[\\/]@supabase[\\/]/.test(id)) return "supabase-vendor";
+          if (/[\\/]node_modules[\\/]recharts[\\/]/.test(id)) return "charts-vendor";
+          if (/[\\/]node_modules[\\/]date-fns[\\/]/.test(id)) return "date-vendor";
         },
       },
     },
