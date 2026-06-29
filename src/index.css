@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Soft pastel baby palette */
+    --background: 30 40% 98%;
+    --foreground: 260 25% 22%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 260 25% 22%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 260 25% 22%;
+
+    --primary: 340 70% 75%;        /* soft pink */
+    --primary-foreground: 340 40% 20%;
+
+    --secondary: 260 60% 88%;      /* lavender */
+    --secondary-foreground: 260 40% 25%;
+
+    --muted: 30 30% 94%;
+    --muted-foreground: 260 12% 50%;
+
+    --accent: 200 70% 85%;         /* baby blue */
+    --accent-foreground: 200 50% 22%;
+
+    --destructive: 0 70% 65%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 30 25% 90%;
+    --input: 30 25% 92%;
+    --ring: 340 70% 75%;
+
+    /* Tracking colors */
+    --sleep: 235 65% 78%;
+    --sleep-foreground: 235 50% 25%;
+    --diaper: 40 80% 75%;
+    --diaper-foreground: 35 60% 25%;
+    --feeding: 150 50% 75%;
+    --feeding-foreground: 150 45% 22%;
+
+    --gradient-soft: linear-gradient(135deg, hsl(340 70% 92%), hsl(260 60% 92%), hsl(200 70% 92%));
+    --shadow-soft: 0 8px 30px -8px hsl(340 50% 70% / 0.25);
+    --shadow-card: 0 2px 12px -4px hsl(260 30% 60% / 0.15);
+
+    --radius: 1.25rem;
+  }
+
+  .dark {
+    --background: 260 25% 12%;
+    --foreground: 30 30% 95%;
+    --card: 260 25% 16%;
+    --card-foreground: 30 30% 95%;
+    --popover: 260 25% 16%;
+    --popover-foreground: 30 30% 95%;
+    --primary: 340 60% 70%;
+    --primary-foreground: 340 30% 15%;
+    --secondary: 260 30% 25%;
+    --secondary-foreground: 30 30% 95%;
+    --muted: 260 20% 22%;
+    --muted-foreground: 260 15% 70%;
+    --accent: 200 50% 35%;
+    --accent-foreground: 200 50% 95%;
+    --destructive: 0 60% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 260 20% 25%;
+    --input: 260 20% 25%;
+    --ring: 340 60% 70%;
+  }
+}
+
+@layer base {
+  * { @apply border-border; }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Quicksand', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+}

@@ -1,0 +1,26 @@
+[
+  {
+    "id": "colimil",
+    "emoji": "☀️",
+    "dose": "1 ml mattina",
+    "label": { "it": "Colimil", "en": "Colimil" }
+  },
+  {
+    "id": "colimil_sera",
+    "emoji": "☀️",
+    "dose": "1 ml sera",
+    "label": { "it": "Colimil sera", "en": "Colimil evening" }
+  },
+  {
+    "id": "reuflor",
+    "emoji": "🐟",
+    "dose": "5 gocce",
+    "label": { "it": "Reuflor", "en": "Reuflor" }
+  },
+  {
+    "id": "vitamin_d",
+    "emoji": "💊",
+    "dose": "4 gocce",
+    "label": { "it": "Vitamina D", "en": "Vitamin D" }
+  }
+]
