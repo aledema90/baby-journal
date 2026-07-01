@@ -23,4 +23,15 @@ export default tseslint.config(
       "@typescript-eslint/no-unused-vars": "off",
     },
   },
+  {
+    // These files intentionally co-locate a component with related non-component
+    // exports — shadcn/ui primitives export their `cva` variants and helper
+    // hooks, and our context modules pair a Provider with its consumer hook.
+    // Splitting them purely to satisfy react-refresh's HMR heuristic would add
+    // churn without runtime benefit, so the rule is disabled here.
+    files: ["src/components/ui/**/*.{ts,tsx}", "src/hooks/**/*.tsx", "src/lib/i18n.tsx"],
+    rules: {
+      "react-refresh/only-export-components": "off",
+    },
+  },
 );

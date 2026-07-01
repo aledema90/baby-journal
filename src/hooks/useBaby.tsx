@@ -99,9 +99,10 @@ export const BabyProvider = ({ children }: { children: ReactNode }) => {
   // Live-sync log changes for the current baby across co-parents. Whenever
   // another device inserts/updates/deletes a sleep/diaper/feeding log for the
   // selected baby, bump the version so useDayLogs / useMonthActivity refetch.
+  const currentBabyId = currentBaby?.id;
   useEffect(() => {
-    if (!currentBaby) return;
-    const babyId = currentBaby.id;
+    if (!currentBabyId) return;
+    const babyId = currentBabyId;
     const handle = (table: LogTable) => (payload: { new?: { id?: string }; old?: { id?: string } }) => {
       const id = payload.new?.id ?? payload.old?.id;
       // Skip the echo of the local user's own write — they already bumped.
@@ -139,7 +140,7 @@ export const BabyProvider = ({ children }: { children: ReactNode }) => {
     return () => {
       supabase.removeChannel(channel);
     };
-  }, [currentBaby?.id, bumpLogs, consumeLocalOp]);
+  }, [currentBabyId, bumpLogs, consumeLocalOp]);
 
   const setCurrentBaby = (b: Baby) => setCurrentBabyState(b);
 
