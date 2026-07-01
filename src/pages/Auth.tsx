@@ -40,8 +40,8 @@ const Auth = () => {
         if (error) throw error;
         navigate("/");
       }
-    } catch (err: any) {
-      toast.error(err.message ?? t("common.error"));
+    } catch (err: unknown) {
+      toast.error(err instanceof Error ? err.message : t("common.error"));
     } finally {
       setLoading(false);
     }

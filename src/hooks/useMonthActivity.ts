@@ -44,9 +44,9 @@ export function useMonthActivity(month: Date) {
       return `${y}-${m}-${day}`;
     };
     const ensure = (k: string) => (map[k] ||= { sleep: false, diaper: false, feeding: false });
-    (s.data ?? []).forEach((r: any) => { ensure(key(r.start_at)).sleep = true; });
-    (d.data ?? []).forEach((r: any) => { ensure(key(r.occurred_at)).diaper = true; });
-    (f.data ?? []).forEach((r: any) => { ensure(key(r.start_at)).feeding = true; });
+    (s.data ?? []).forEach((r: { start_at: string }) => { ensure(key(r.start_at)).sleep = true; });
+    (d.data ?? []).forEach((r: { occurred_at: string }) => { ensure(key(r.occurred_at)).diaper = true; });
+    (f.data ?? []).forEach((r: { start_at: string }) => { ensure(key(r.start_at)).feeding = true; });
 
     setDays(map);
     setLoading(false);
