@@ -28,10 +28,6 @@ across both parents' phones.
 - 🔐 **Email or Google sign-in** — powered by Supabase Auth
 - 📱 **Installable PWA** — add it to your home screen and use it like a native app
 
-## 📸 Screenshots
-
-> Add images to [`docs/screenshots/`](./docs/screenshots) — see that folder's
-> README for the expected filenames.
 
 <div align="center">
 
